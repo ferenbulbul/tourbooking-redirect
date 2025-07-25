@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Yönlendiriliyorsunuz…</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const deepLink = params.get('deep');
+    if (deepLink) {
+      window.location.href = deepLink;
+    }
+  </script>
+</head>
+<body>
+  <p>Eğer otomatik yönlendirme olmazsa, <a id="fallback" href="#">buraya tıklayın</a>.</p>
+  <script>
+    const fallback = document.getElementById('fallback');
+    fallback.href = params.get('deep') || '#';
+  </script>
+</body>
+</html>
